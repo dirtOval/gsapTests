@@ -1,0 +1,50 @@
+html {
+  margin: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: auto auto; */
+  width: 4rem;
+  height: 4rem;
+  border-color: white;
+  border-style: dotted;
+  border-width: 0;
+}
+
+.green {
+  background: green;
+}
+
+.red {
+  background: red;
+}
+
+.box-container {
+  margin: 3rem auto;
+  border: 3px dotted blue;
+  width: 75%;
+  height: 120rem;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+  grid-gap: 0;
+  justify-items: center;
+  align-items: center;
+}
+
+
+/* buttons */
+
+.stagger-button {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}

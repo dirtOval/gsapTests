@@ -31,38 +31,38 @@ boxButton.addEventListener('click', () => {
 
 //stagger test
 
-const toggleBoxes = (delay, staggerFrom) => {
-  console.log(staggerFrom);
-    if (!boxesBoxed) {
-      gsap.to('.red', {
-        scale: 1.25,
-        stagger: {
-          each: 0.05,
-          from: staggerFrom,
-          grid: 'auto'
-        },
-        duration: 0.2,
-        background: 'teal',
-        borderWidth: 3,
-        delay: delay
-      })
-    } else {
-      gsap.to('.red', {
-        scale: 1,
-        stagger: {
-          each: 0.05,
-          from: staggerFrom,
-          grid: 'auto'
-        },
-        duration: 0.75,
-        border: 'none',
-        background: 'red',
-        ease: 'bounce.out',
-        borderWidth: 0,
-        delay: delay
-      })
-    }
-    boxesBoxed = !boxesBoxed;
+const toggleBoxes = (delay, autoGrid, staggerFrom) => {
+  console.log(autoGrid);
+  if (!boxesBoxed) {
+    gsap.to('.red', {
+      scale: 1.25,
+      stagger: {
+        each: 0.05,
+        from: staggerFrom,
+        grid: autoGrid
+      },
+      duration: 0.2,
+      background: 'teal',
+      borderWidth: '3px',
+      delay: delay
+    })
+  } else {
+    gsap.to('.red', {
+      scale: 1,
+      stagger: {
+        each: 0.05,
+        from: staggerFrom,
+        grid: autoGrid
+      },
+      duration: 0.75,
+      border: 'none',
+      background: 'red',
+      ease: 'bounce.out',
+      borderWidth: '0px',
+      delay: delay
+    })
+  }
+  boxesBoxed = !boxesBoxed;
 }
 
 let boxesBoxed = false;
@@ -71,7 +71,8 @@ staggerButton.addEventListener('click', () => {
   const repeats = $('.repeats').val();
   const delay = $('.delay').val();
   const staggerFrom = $('.stagger-from:checked').val();
+  const autoGrid = $('.auto-grid').is(':checked') ? 'auto' : '';
   for (let i = 0; i <= repeats - 1; i++) {
-    toggleBoxes(delay * i, staggerFrom)
+    toggleBoxes(delay * i, autoGrid, staggerFrom)
   }
 })

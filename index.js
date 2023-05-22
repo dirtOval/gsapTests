@@ -31,12 +31,16 @@ boxButton.addEventListener('click', () => {
 
 //stagger test
 
-const toggleBoxes = (delay) => {
-  console.log('boxin!');
+const toggleBoxes = (delay, staggerFrom) => {
+  console.log(staggerFrom);
     if (!boxesBoxed) {
       gsap.to('.red', {
         scale: 1.25,
-        stagger: 0.05,
+        stagger: {
+          each: 0.05,
+          from: staggerFrom,
+          grid: 'auto'
+        },
         duration: 0.2,
         background: 'teal',
         borderWidth: 3,
@@ -45,7 +49,11 @@ const toggleBoxes = (delay) => {
     } else {
       gsap.to('.red', {
         scale: 1,
-        stagger: 0.05,
+        stagger: {
+          each: 0.05,
+          from: staggerFrom,
+          grid: 'auto'
+        },
         duration: 0.75,
         border: 'none',
         background: 'red',
@@ -55,7 +63,6 @@ const toggleBoxes = (delay) => {
       })
     }
     boxesBoxed = !boxesBoxed;
-    console.log(boxesBoxed);
 }
 
 let boxesBoxed = false;
@@ -63,7 +70,8 @@ const staggerButton = document.getElementsByClassName('stagger-button')[0];
 staggerButton.addEventListener('click', () => {
   const repeats = $('.repeats').val();
   const delay = $('.delay').val();
+  const staggerFrom = $('.stagger-from:checked').val();
   for (let i = 0; i <= repeats - 1; i++) {
-    toggleBoxes(delay * i)
+    toggleBoxes(delay * i, staggerFrom)
   }
 })

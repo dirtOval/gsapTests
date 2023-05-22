@@ -16,6 +16,21 @@
       <button class="stagger-button">Boxes go brrr</button>
       <label>Repeats<input class="repeats" type="number" value="1" /></label>
       <label>Delay<input class="delay" type="number" value="1" /></label>
+      <div class="stagger-panel">
+        <span>Stagger From:</span>
+        <label>start
+          <input class="stagger-from" type="radio" name="stagger-from" value="start" checked />
+        </label>
+        <label>center
+          <input class="stagger-from" type="radio" name="stagger-from" value="center" />
+        </label><label>edges
+          <input class="stagger-from" type="radio" name="stagger-from" value="edges" />
+        </label><label>random
+          <input class="stagger-from" type="radio" name="stagger-from" value="random" />
+        </label><label>end
+          <input class="stagger-from" type="radio" name="stagger-from" value="end" />
+        </label>
+      </div>
 
     </div>
 	<script type="module" src="index.js"></script>

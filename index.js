@@ -32,7 +32,6 @@ boxButton.addEventListener('click', () => {
 //stagger test
 
 const toggleBoxes = (delay, autoGrid, staggerFrom) => {
-  console.log(autoGrid);
   if (!boxesBoxed) {
     gsap.to('.red', {
       scale: 1.25,
@@ -75,4 +74,53 @@ staggerButton.addEventListener('click', () => {
   for (let i = 0; i <= repeats - 1; i++) {
     toggleBoxes(delay * i, autoGrid, staggerFrom)
   }
+})
+
+//timeline test
+let boxAnimated = false;
+$('.blue-button').on('click', () => {
+  if (!boxAnimated) {
+    const timeline1 = gsap.timeline({
+      onComplete: () => {
+        $('.blue').text('Tired Box');
+      }
+    });
+    timeline1.to('.blue', {
+      x: '+= 25rem',
+      y: '+= 25rem',
+      duration: 2.5,
+      ease: 'elastic.out'
+    });
+    timeline1.to('.blue', {
+      y: '+= 50rem',
+      background: 'lightgreen',
+      color: 'black',
+      border: '12px solid blue'
+    });
+    timeline1.to('.blue-stage', {
+      scaleX: 0.65,
+      borderColor: 'lightblue',
+      duration: 0.1
+    }, '<');
+    timeline1.to('.blue-stage', {
+      scaleX: 1,
+      borderColor: 'red',
+      duration: 0.2,
+      delay: 0.1
+    });
+
+  } else {
+    const timeline2 = gsap.timeline();
+    timeline2.to('.blue', {
+      x: 0,
+      y: 0,
+      color: 'white',
+      background: 'blue',
+      duration: 0.5,
+      onComplete: () => {
+        $('.blue').text('Box');
+      }
+    })
+  }
+  boxAnimated = !boxAnimated;
 })

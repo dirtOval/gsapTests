@@ -8,10 +8,6 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="box green">Box</div>
-    <button class="box-button">Move The Box</button>
-
-    <div class="box-container"></div>
     <div class="control-panel">
       <button class="stagger-button">Boxes go brrr</button>
       <label>Repeats<input class="repeats" type="number" value="1" /></label>
@@ -34,8 +30,20 @@
           <input class="stagger-from" type="radio" name="stagger-from" value="end" />
         </label>
       </div>
-
     </div>
+    <h3>A Simple Test</h3>
+    <div class="box green">Box</div>
+    <button class="box-button">Move The Box</button>
+
+    <h3>Stagger Test</h3>
+    <div class="box-container"></div>
+
+    <h3>Timeline Test</h3>
+    <button class="blue-button">Make the blue box go</button>
+    <div class="blue-stage">
+      <div class="box blue">Box</div>
+    </div>
+
 	<script type="module" src="index.js"></script>
   </body>
 </html>
